@@ -13,7 +13,7 @@ def get_recommendations(user_id: str) -> List[str]:
         try:
             title = news_dataset[news_dataset['News ID'] == history]['Title'].values[0]
             input_title = title
-            similar_titles = euclidean_distance_based_model(input_title, 6, news_dataset)
+            similar_titles = euclidean_distance_based_model(input_title, 100, news_dataset)
             if similar_titles is not None:
                 combined_similar_titles.update(similar_titles)
         except IndexError:
